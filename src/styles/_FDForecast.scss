@@ -1,0 +1,96 @@
+// .fd-forecast-container {
+//   background-color: #100e1d;
+//   width: 100%;
+//   color: #fff;
+//   //   display: flex;
+//   //   align-items: center;
+//   flex-wrap: wrap;
+//   gap: 2rem;
+
+.fd-card-layout {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+  height: 40%;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 80px;
+
+  //   background-color: red;
+  .fd-wrapper {
+    background-color: #1e213a;
+    width: 200px;
+    height: 257px;
+
+    .fd-day {
+      width: 100%;
+      min-height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        color: #e7e7eb;
+        font-size: 16px;
+        font-family: 'Raleway', sans-serif;
+        transform: translateY(20px);
+        font-weight: 500;
+        line-height: 19px;
+      }
+    }
+
+    .fd-icon {
+      height: 200px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .forecast-icon {
+        width: 100px;
+        height: 100px;
+        background-image: url('../assets/img/Shower.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    .fd-temps {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      gap: 1rem;
+      font-family: 'Raleway', sans-serif;
+      transform: translateY(-20px);
+      p {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 19px;
+      }
+
+      p:last-child {
+        color: #a09fb1;
+      }
+    }
+  }
+}
+// }
+
+@media screen and (max-width: 768px) {
+  .fd-forecast-container {
+    width: 100%;
+
+    .fd-card-layout {
+      margin-top: 50px;
+      .fd-wrapper {
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 769px) {
+  .fd-card-layout {
+    flex-wrap: unset;
+    margin-top: 30px;
+  }
+}

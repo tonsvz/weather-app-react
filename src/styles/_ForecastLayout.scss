@@ -1,0 +1,24 @@
+.forecast-layout-component {
+  background-color: #100e1d;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  height: 100%;
+
+  .forecast-layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 95%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .forecast-layout-component {
+    height: auto;
+  }
+}

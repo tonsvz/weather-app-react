@@ -1,0 +1,29 @@
+.search-component-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 30px;
+  width: 50%;
+
+  input {
+    background-color: red;
+    border: none;
+    width: 161px;
+    height: 40px;
+    background-color: #6e707a;
+    margin-top: 30px;
+    color: #ededf4;
+    font-family: 'Raleway', sans-serif;
+
+    &::placeholder {
+      color: #ededf4;
+      font-family: 'Raleway', sans-serif;
+      font-size: 13.5px;
+    }
+    &:focus {
+      outline: none;
+    }
+    &[type='text'] {
+      padding-left: 20px;
+    }
+  }
+}
