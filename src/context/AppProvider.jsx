@@ -1,11 +1,5 @@
 import axios from 'axios';
-import React, {
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-  useCallback,
-} from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 
 // import axios from 'axios';
 
@@ -18,7 +12,7 @@ export const UserAppContext = () => {
 export const AppProvider = ({ children }) => {
   const [location, getLocation] = useState('Quito');
 
-  const fetchDataCurrentWeather = async () => {
+  const currentWeather = async () => {
     const response = await axios.get(
       `${import.meta.env.VITE_CURRENT_WEATHER}${location}&appid=${
         import.meta.env.VITE_API_KEY
@@ -28,77 +22,84 @@ export const AppProvider = ({ children }) => {
     return response.data;
   };
 
-  // const fetchData = useCallback(() => {
-
+  // Weather States
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
   const [temp, setTemp] = useState('');
   const [weather, setWeather] = useState('');
+  const [wind, setWind] = useState('');
+  const [humidity, setHumidity] = useState('');
+  const [visibility, setVisibility] = useState('');
+  const [pressure, setPressure] = useState('');
 
-  const getForecast = async () => {
-    let forecast;
+  // Forecast States
+
+  const [weatherData, setWeatherData] = useState();
+  const [forecastData, setForecastData] = useState();
+
+  const getWeather = async () => {
+    let weather;
 
     try {
-      const data = await fetchDataCurrentWeather();
-      console.log(data);
-      forecast = data;
-      console.log(data.base);
+      const data = await currentWeather();
+      // console.log(data);
+      weather = data;
+      // console.log(data.base);
     } catch (err) {
       console.log(err);
     }
     try {
-      setCity(forecast.name);
-      setCountry(forecast.sys.country);
-      setTemp(forecast.main.temp);
-      setWeather(forecast.weather[0].main);
+      setCity(weather.name);
+      setCountry(weather.sys.country);
+      setTemp(weather.main.temp);
+      setWeather(weather.weather[0].main);
+      setWind(weather.wind.speed);
+      setHumidity(weather.main.humidity);
+      setVisibility(weather.visibility);
+      setPressure(weather.main.pressure);
     } catch (err) {
       console.log(err);
     }
   };
 
+  const getForecast = () => {
+    axios
+      .get(
+        `${import.meta.env.VITE_FORECAST_5_DAYS}${location}&appid=${
+          import.meta.env.VITE_API_KEY
+        }&units=metric`
+      )
+      .then((response) => {
+        // console.log(response.data);
+        setForecastData(response.data.list);
+        console.log(response.data.list);
+      });
+  };
+
   useEffect(() => {
+    getWeather();
     getForecast();
   }, []);
-
-  const nextDaysWeather = async () => {
-    const response = await axios.get(
-      `${import.meta.env.VITE_FORECAST_5_DAYS}${location}&appid=${
-        import.meta.env.VITE_API_KEY
-      }&units=metric`
-    );
-    console.log(response.data);
-    return response.data;
-  };
-
-  useEffect(() => {
-    nextDaysWeather();
-  });
-  //   axios
-  //     .get(
-  //       `${import.meta.env.VITE_CURRENT_WEATHER}${data}&appid=${
-  //         import.meta.env.VITE_API_KEY
-  //       }&units=metric`
-  //     )
-  //     .then((res) => {
-  //       getData(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [data]);
 
   return (
     <AppContext.Provider
       value={{
-        location,
         getLocation,
-        fetchDataCurrentWeather,
+        currentWeather,
+        getWeather,
+        getForecast,
+        setCountry,
+        setForecastData,
+        location,
         city,
         temp,
         weather,
-        getForecast,
-        setCountry,
+        wind,
+        humidity,
+        visibility,
+        pressure,
         country,
+        forecastData,
       }}
     >
       {children}

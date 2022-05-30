@@ -91,6 +91,23 @@
 @media screen and (max-width: 1440px) and (min-width: 769px) {
   .fd-card-layout {
     flex-wrap: unset;
+    width: 800px;
     margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .fd-card-layout {
+    width: 330px;
+    margin-top: 30px;
+    transform: translateX(-10px);
+    .fd-wrapper {
+      width: 140px !important;
+      height: 257px;
+
+      &:last-child {
+        transform: translateX(-77px);
+      }
+    }
   }
 }

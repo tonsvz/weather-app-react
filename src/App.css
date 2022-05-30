@@ -16,7 +16,7 @@ body{
 
 @media screen and (max-width: 768px) {
   .App {
-    background-color: red;
+    /* background-color: red; */
     flex-direction: column;
     height: 100%;
   }

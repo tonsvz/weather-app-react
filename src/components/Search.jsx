@@ -3,11 +3,11 @@ import '../styles/_Search.scss';
 import { BiSearchAlt } from 'react-icons/bi';
 import { UserAppContext } from '../context/AppProvider';
 export const Search = () => {
-  const { getLocation, fetchDataCurrentWeather, getForecast } =
-    UserAppContext();
+  const { getLocation, getWeather, getForecast } = UserAppContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    getWeather();
     getForecast();
   };
 

@@ -50,7 +50,7 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        background-image: url('../assets/img/LightCloud.png');
+        background-image: url('../assets/img/HeavyCloud.png');
         margin-bottom: 20px;
         background-repeat: no-repeat;
         margin-top: 20px;
@@ -154,6 +154,6 @@
 
 @media screen and (max-width: 768px) {
   .forecast-container {
-    width: 100vw;
+    min-width: unset;
   }
 }

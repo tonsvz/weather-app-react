@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/_Highlights.scss';
 import { FaLocationArrow } from 'react-icons/fa';
+import { UserAppContext } from '../context/AppProvider';
 
 export const Highlights = () => {
+  const { wind, humidity, visibility, pressure } = UserAppContext();
+
   return (
     <div className='highlights-component-container'>
       <div className='highlights-card-wrapper'>
         <div className='header-title'>
-          <h1>Today's Highlights'</h1>
+          <h1>Today's Highlights</h1>
         </div>
         <div className='cards-wrapper'>
           <div className='wind-status-card'>
@@ -16,7 +19,7 @@ export const Highlights = () => {
             </div>
 
             <div className='wind-details'>
-              <h1>7</h1>
+              <h1>{wind}</h1>
               <span>mph</span>
             </div>
 
@@ -34,7 +37,7 @@ export const Highlights = () => {
             </div>
 
             <div className='humidity-details'>
-              <h1>84%</h1>
+              <h1>{humidity}%</h1>
             </div>
 
             <div className='humidity-progress-bar'>
@@ -42,6 +45,7 @@ export const Highlights = () => {
             </div>
           </div>
         </div>
+
         <div className='cards-wrapper'>
           <div className='visibility-status-card '>
             <div className='card-header'>
@@ -49,7 +53,7 @@ export const Highlights = () => {
             </div>
 
             <div className='visibility-details'>
-              <h1>6,4</h1>
+              <h1>{visibility}</h1>
               <span>miles</span>
             </div>
           </div>
@@ -60,7 +64,7 @@ export const Highlights = () => {
             </div>
 
             <div className='air-details'>
-              <h1>998</h1>
+              <h1>{pressure}</h1>
               <span>mb</span>
             </div>
           </div>

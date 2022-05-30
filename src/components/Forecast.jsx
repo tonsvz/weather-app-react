@@ -15,7 +15,6 @@ export const Forecast = () => {
   let yyyy = today.getFullYear();
 
   today = mm + '/' + dd + '/' + yyyy;
-  console.log(today);
 
   return (
     <div className='forecast-container'>
