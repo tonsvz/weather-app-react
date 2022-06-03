@@ -45,13 +45,26 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      // .forecast-icon {
+      //   width: 100px;
+      //   height: 100px;
+      //   background-image: url('../public/images/Shower.png');
+      //   background-size: contain;
+      //   background-repeat: no-repeat;
+      //   background-position: center;
+      // }
+
       .forecast-icon {
         width: 100px;
         height: 100px;
-        background-image: url('../assets/img/Shower.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 120px;
+          height: 120px;
+        }
       }
     }
 

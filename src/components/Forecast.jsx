@@ -3,11 +3,12 @@ import '../styles/_Forecast.scss';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { Search } from './Search';
 import { UserAppContext } from '../context/AppProvider';
-
 // raleway font from google
 
 export const Forecast = () => {
-  const { city, temp, weather, country } = UserAppContext();
+  const { city, temp, weather, country, weatherId, getWeatherIcon } =
+    UserAppContext();
+
   // Todays date
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, '0');
@@ -25,7 +26,9 @@ export const Forecast = () => {
 
         <div className='forecast-items'>
           <div className='forecast-temp-wrapper'>
-            <div className='forecast-temp-img'></div>
+            <div className='forecast-temp-img'>
+              <img src={getWeatherIcon(weatherId)} alt='image' />
+            </div>
           </div>
 
           <div className='forecast-temp'>

@@ -1,8 +1,9 @@
 import React from 'react';
 import '../styles/_FDForecast.scss';
 import { UserAppContext } from '../context/AppProvider';
+
 export const FiveDaysForecast = () => {
-  const { forecastData } = UserAppContext();
+  const { forecastData, getWeatherIcon } = UserAppContext();
 
   // Check the date
   let getDayName = (dateStr, locale) => {
@@ -16,7 +17,7 @@ export const FiveDaysForecast = () => {
       {forecastData &&
         forecastData
           .filter((e) => {
-            return e.dt_txt.includes('06:00:00');
+            return e.dt_txt.includes('12:00:00');
           })
           .map((item, index) => {
             return (
@@ -26,7 +27,12 @@ export const FiveDaysForecast = () => {
                 </div>
 
                 <div className='fd-icon'>
-                  <div className='forecast-icon'></div>
+                  <div className='forecast-icon'>
+                    <img
+                      src={getWeatherIcon(item.weather[0].id)}
+                      alt='weather-image'
+                    />
+                  </div>
                 </div>
 
                 <div className='fd-temps'>

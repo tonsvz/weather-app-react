@@ -10,7 +10,7 @@
     position: relative;
     overflow: hidden;
     .forecast-img {
-      background-image: url('../assets//img/Cloud-background.png');
+      background-image: url('../public/images/Cloud-background.png');
       background-repeat: no-repeat;
       width: 100%;
       height: 360px;
@@ -50,7 +50,7 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        background-image: url('../assets/img/HeavyCloud.png');
+        // background-image: url('../public/images/Clear.png');
         margin-bottom: 20px;
         background-repeat: no-repeat;
         margin-top: 20px;
@@ -97,6 +97,7 @@
         line-height: 42px;
         text-align: center;
         color: #a09fb1;
+        text-transform: capitalize;
       }
     }
 
