@@ -40,12 +40,13 @@ export const getWeatherIcon = (rangeId) => {
 
 export const AppProvider = ({ children }) => {
   const [location, getLocation] = useState('Quito');
+  console.log(location);
 
   const currentWeather = async () => {
     const response = await axios.get(
       `${import.meta.env.VITE_CURRENT_WEATHER}${location}&appid=${
         import.meta.env.VITE_API_KEY
-      }&units=metric`
+      }&units=${units}`
     );
     console.log(response.data);
     return response.data;
@@ -64,8 +65,11 @@ export const AppProvider = ({ children }) => {
 
   // Forecast States
 
-  const [weatherData, setWeatherData] = useState();
   const [forecastData, setForecastData] = useState();
+
+  // Unit Converter State
+  const [units, setUnits] = useState('metric');
+  const [unitSymbol, setUnitSymbol] = useState('℃');
 
   const getWeather = async () => {
     let weather;
@@ -93,12 +97,12 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  const getForecast = () => {
-    axios
+  const getForecast = async () => {
+    await axios
       .get(
         `${import.meta.env.VITE_FORECAST_5_DAYS}${location}&appid=${
           import.meta.env.VITE_API_KEY
-        }&units=metric`
+        }&units=${units}`
       )
       .then((response) => {
         // console.log(response.data);
@@ -133,6 +137,10 @@ export const AppProvider = ({ children }) => {
         forecastData,
         getWeatherIcon,
         weatherId,
+        units,
+        setUnits,
+        setUnitSymbol,
+        unitSymbol,
       }}
     >
       {children}

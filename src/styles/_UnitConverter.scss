@@ -1,0 +1,36 @@
+.unit-buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+  gap: 1rem;
+
+  button {
+    color: #110e3c;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    text-align: center;
+    background-color: #e7e7eb;
+    border: none;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    transform: translateY(20px);
+  }
+
+  button:last-child {
+    background-color: #585676;
+    color: #e7e7eb;
+  }
+
+  .selected {
+    background-color: #e7e7eb !important;
+    color: #110e3c !important;
+  }
+
+  .not-selected {
+    background-color: #585676;
+    color: #e7e7eb;
+  }
+}

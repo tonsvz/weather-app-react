@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/_Highlights.scss';
 import { FaLocationArrow } from 'react-icons/fa';
 import { UserAppContext } from '../context/AppProvider';
+import { Footer } from './Footer';
 
 export const Highlights = () => {
   const { wind, humidity, visibility, pressure } = UserAppContext();
@@ -68,6 +69,9 @@ export const Highlights = () => {
               <span>mb</span>
             </div>
           </div>
+        </div>
+        <div className='footer-container'>
+          <Footer />
         </div>
       </div>
     </div>

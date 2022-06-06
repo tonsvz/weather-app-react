@@ -15,7 +15,7 @@
   height: 40%;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 80px;
+  margin-top: 50px;
 
   //   background-color: red;
   .fd-wrapper {
@@ -95,8 +95,9 @@
 
     .fd-card-layout {
       margin-top: 50px;
-      .fd-wrapper {
-      }
+      // .fd-wrapper {
+      //   // display: ;
+      // }
     }
   }
 }
@@ -109,7 +110,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .fd-card-layout {
     width: 330px;
     margin-top: 30px;

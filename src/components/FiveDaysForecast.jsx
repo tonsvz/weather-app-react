@@ -3,7 +3,7 @@ import '../styles/_FDForecast.scss';
 import { UserAppContext } from '../context/AppProvider';
 
 export const FiveDaysForecast = () => {
-  const { forecastData, getWeatherIcon } = UserAppContext();
+  const { forecastData, getWeatherIcon, unitSymbol } = UserAppContext();
 
   // Check the date
   let getDayName = (dateStr, locale) => {
@@ -11,6 +11,8 @@ export const FiveDaysForecast = () => {
     // console.log(date.toLocaleDateString(locale, { weekday: 'long' }));
     return date.toLocaleDateString(locale, { weekday: 'long' });
   };
+
+  // create a function to conver farhenheit to celsius
 
   return (
     <div className='fd-card-layout'>
@@ -36,9 +38,15 @@ export const FiveDaysForecast = () => {
                 </div>
 
                 <div className='fd-temps'>
-                  <p>{Math.round(item.main.temp)}℃</p>
+                  <p>
+                    {Math.round(item.main.temp)}
+                    {unitSymbol}
+                  </p>
 
-                  <p>{Math.round(item.main.feels_like)}℃</p>
+                  <p>
+                    {Math.round(item.main.feels_like)}
+                    {unitSymbol}
+                  </p>
                 </div>
               </div>
             );

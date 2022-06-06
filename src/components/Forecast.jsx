@@ -6,8 +6,15 @@ import { UserAppContext } from '../context/AppProvider';
 // raleway font from google
 
 export const Forecast = () => {
-  const { city, temp, weather, country, weatherId, getWeatherIcon } =
-    UserAppContext();
+  const {
+    city,
+    temp,
+    weather,
+    country,
+    weatherId,
+    getWeatherIcon,
+    unitSymbol,
+  } = UserAppContext();
 
   // Todays date
   let today = new Date();
@@ -21,8 +28,21 @@ export const Forecast = () => {
     <div className='forecast-container'>
       <Search />
       <div className='forecast-background-img'>
-        <div className='forecast-img'></div>
-        <div className='forecast-img'></div>
+        <div className='weather-bg-container animate'>
+          <div className='forecast-img'>
+            <img src='/src/public/images/Cloud-background.png' alt='' />
+          </div>
+          <div className='forecast-img'>
+            <img src='/src/public/images/Cloud-background.png' alt='' />
+          </div>
+          <div className='forecast-img'>
+            <img src='/src/public/images/Cloud-background.png' alt='' />
+          </div>
+          <div className='forecast-img'>
+            <img src='/src/public/images/Cloud-background.png' alt='' />
+          </div>
+          {/* <div className='forecast-img'></div> */}
+        </div>
 
         <div className='forecast-items'>
           <div className='forecast-temp-wrapper'>
@@ -34,7 +54,7 @@ export const Forecast = () => {
           <div className='forecast-temp'>
             <span>{Math.round(temp)}</span>
 
-            <span>℃</span>
+            <span>{unitSymbol}</span>
           </div>
 
           <div className='forecast-details'>
