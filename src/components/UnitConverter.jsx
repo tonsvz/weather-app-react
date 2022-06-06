@@ -3,7 +3,8 @@ import '../styles/_UnitConverter.scss';
 import { UserAppContext } from '../context/AppProvider';
 
 export const UnitConverter = () => {
-  const { setUnitSymbol, setUnits, getWeather, getForecast } = UserAppContext();
+  const { setUnitSymbol, setUnits, getWeather, getForecast, units } =
+    UserAppContext();
 
   const [selected, setSelected] = useState(false);
 
@@ -13,6 +14,7 @@ export const UnitConverter = () => {
       setUnits('metric');
       getWeather();
       getForecast();
+      return console.log(units);
     } else {
       setUnitSymbol('℃');
       setUnits('imperial');

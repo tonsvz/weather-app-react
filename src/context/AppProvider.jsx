@@ -14,25 +14,25 @@ export const UserAppContext = () => {
 export const getWeatherIcon = (rangeId) => {
   switch (true) {
     case rangeId >= 200 && rangeId <= 232:
-      console.log('this is thunderstorm');
+      // console.log('this is thunderstorm');
       return iconImages.thunderstorm;
     case rangeId >= 300 && rangeId <= 321:
-      console.log('this is drizzle');
+      // console.log('this is drizzle')
       return iconImages.drizzle;
     case rangeId >= 500 && rangeId <= 531:
-      console.log('this is rain');
+      // console.log('this is rain');
       return iconImages.rain;
     case rangeId >= 600 && rangeId <= 622:
-      console.log('this is snow');
+      // console.log('this is snow');
       return iconImages.snow;
     case rangeId >= 701 && rangeId <= 781:
-      console.log('this is atmosphere');
+      // console.log('this is atmosphere');
       return iconImages.atmosphere;
     case rangeId === 800:
-      console.log('this is clear sky');
+      // console.log('this is clear sky');
       return iconImages.clear;
     case rangeId >= 801 && rangeId <= 804:
-      console.log('this is clouds');
+      // console.log('this is clouds');
       return iconImages.clouds;
     default:
   }
@@ -40,7 +40,7 @@ export const getWeatherIcon = (rangeId) => {
 
 export const AppProvider = ({ children }) => {
   const [location, getLocation] = useState('Quito');
-  console.log(location);
+  // console.log(location);
 
   const currentWeather = async () => {
     const response = await axios.get(
@@ -48,7 +48,7 @@ export const AppProvider = ({ children }) => {
         import.meta.env.VITE_API_KEY
       }&units=${units}`
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   };
 
@@ -107,7 +107,7 @@ export const AppProvider = ({ children }) => {
       .then((response) => {
         // console.log(response.data);
         setForecastData(response.data.list);
-        console.log(response.data.list);
+        // console.log(response.data.list);
       });
   };
 

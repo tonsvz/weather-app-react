@@ -19,7 +19,7 @@ export const FiveDaysForecast = () => {
       {forecastData &&
         forecastData
           .filter((e) => {
-            return e.dt_txt.includes('12:00:00');
+            return e.dt_txt.includes('09:00:00');
           })
           .map((item, index) => {
             return (

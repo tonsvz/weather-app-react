@@ -41,8 +41,19 @@ export const Highlights = () => {
               <h1>{humidity}%</h1>
             </div>
 
-            <div className='humidity-progress-bar'>
-              <div className='progress-bar'></div>
+            <div className='humidity-progress-bar-wrapper'>
+              <div className='percent'>
+                <p>0</p>
+                <p>50</p>
+                <p>100</p>
+              </div>
+              <div className='humidity-progress-bar'>
+                <div
+                  className='progress-bar-fill'
+                  style={{ width: `${humidity}%` }}
+                ></div>
+                <p>%</p>
+              </div>
             </div>
           </div>
         </div>
