@@ -31,16 +31,16 @@ export const Forecast = () => {
       <div className='forecast-background-img'>
         <div className='weather-bg-container animate'>
           <div className='forecast-img'>
-            <img src='/src/public/images/Cloud-background.png' alt='' />
+            <img src='/src/assets/images/Cloud-background.png' alt='' />
           </div>
           <div className='forecast-img'>
-            <img src='/src/public/images/Cloud-background.png' alt='' />
+            <img src='/src/assets/images/Cloud-background.png' alt='' />
           </div>
           <div className='forecast-img'>
-            <img src='/src/public/images/Cloud-background.png' alt='' />
+            <img src='/src/assets/images/Cloud-background.png' alt='' />
           </div>
           <div className='forecast-img'>
-            <img src='/src/public/images/Cloud-background.png' alt='' />
+            <img src='/src/assets/images/Cloud-background.png' alt='' />
           </div>
           {/* <div className='forecast-img'></div> */}
         </div>
