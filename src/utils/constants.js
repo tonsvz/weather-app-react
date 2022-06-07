@@ -1,8 +1,8 @@
 export const iconImages = {
-  clear: '/src/assets/images/Clear.png',
-  clouds: '/src/assets/images/LightCloud.png',
-  drizzle: '/src/assets/images/Hail.png',
-  rain: '/src/assets/images/LightRain.png',
-  snow: '/src/assets/images/Snow.png',
-  thunderstorm: '/src/assets/images/Thunderstorm.png',
+  clear: '/assets/images/Clear.png',
+  clouds: '/assets/images/LightCloud.png',
+  drizzle: '/assets/images/Hail.png',
+  rain: '/assets/images/LightRain.png',
+  snow: '/assets/images/Snow.png',
+  thunderstorm: '/assets/images/Thunderstorm.png',
 };
