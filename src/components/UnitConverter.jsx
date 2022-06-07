@@ -3,42 +3,25 @@ import '../styles/_UnitConverter.scss';
 import { UserAppContext } from '../context/AppProvider';
 
 export const UnitConverter = () => {
-  const { setUnitSymbol, setUnits, getWeather, getForecast, units } =
+  const { setUnitSymbol, setUnits, isFahrenheit, setIsFahrenheit } =
     UserAppContext();
-
-  const [selected, setSelected] = useState(false);
-
-  useEffect(() => {
-    if (selected) {
-      setUnitSymbol('℉');
-      setUnits('metric');
-      getWeather();
-      getForecast();
-      return console.log(units);
-    } else {
-      setUnitSymbol('℃');
-      setUnits('imperial');
-      getWeather();
-      getForecast();
-    }
-  }, [selected]);
 
   return (
     <div className='unit-buttons'>
       <button
-        className={selected ? 'not-selected' : 'selected'}
+        className={isFahrenheit ? 'not-selected' : 'selected'}
         onClick={() => {
           setUnitSymbol('℃');
-          setSelected(false);
+          setIsFahrenheit(false);
         }}
       >
         ℃
       </button>
       <button
-        className={selected ? 'selected' : 'not-selected'}
+        className={isFahrenheit ? 'selected' : 'not-selected'}
         onClick={() => {
           setUnitSymbol('℉');
-          setSelected(true);
+          setIsFahrenheit(true);
         }}
       >
         ℉

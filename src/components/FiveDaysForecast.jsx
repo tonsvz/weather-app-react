@@ -3,7 +3,8 @@ import '../styles/_FDForecast.scss';
 import { UserAppContext } from '../context/AppProvider';
 
 export const FiveDaysForecast = () => {
-  const { forecastData, getWeatherIcon, unitSymbol } = UserAppContext();
+  const { forecastData, getWeatherIcon, unitSymbol, isFahrenheit } =
+    UserAppContext();
 
   // Check the date
   let getDayName = (dateStr, locale) => {
@@ -39,12 +40,16 @@ export const FiveDaysForecast = () => {
 
                 <div className='fd-temps'>
                   <p>
-                    {Math.round(item.main.temp)}
+                    {isFahrenheit
+                      ? Math.round((item.main.temp * 9) / 5 + 32)
+                      : Math.round(item.main.temp)}
                     {unitSymbol}
                   </p>
 
                   <p>
-                    {Math.round(item.main.feels_like)}
+                    {isFahrenheit
+                      ? Math.round((item.main.feels_like * 9) / 5 + 32)
+                      : Math.round(item.main.feels_like)}
                     {unitSymbol}
                   </p>
                 </div>

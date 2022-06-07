@@ -14,6 +14,7 @@ export const Forecast = () => {
     weatherId,
     getWeatherIcon,
     unitSymbol,
+    isFahrenheit,
   } = UserAppContext();
 
   // Todays date
@@ -52,7 +53,11 @@ export const Forecast = () => {
           </div>
 
           <div className='forecast-temp'>
-            <span>{Math.round(temp)}</span>
+            <span>
+              {isFahrenheit
+                ? Math.round((Math.round(temp) * 9) / 5 + 32)
+                : Math.round(Math.round(temp))}
+            </span>
 
             <span>{unitSymbol}</span>
           </div>
